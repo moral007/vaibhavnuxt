@@ -8,5 +8,13 @@
         "serverFiles": ["server-middleware/**"]
       }
     }
-  ]
+  ],
+  "env": {
+    "WP_URL": true
+  },
+  "build": {
+    "env": {
+      "WP_URL": true
+    }
+  }
 }
