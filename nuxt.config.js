@@ -63,5 +63,11 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  env: {
+    WP_URL: process.env.WP_URL || 'https://nuxtjs.org'
+  },
+  publicRuntimeConfig: {
+    WP_URL: process.env.WP_URL || 'https://nuxtjs.org'
   }
 }
