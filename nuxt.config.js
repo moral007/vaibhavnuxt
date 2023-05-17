@@ -48,7 +48,7 @@ export default {
   serverMiddleware: [
     {
       path: '/',
-      handler: '~/server-middleware/redirect.js'
+      handler: '~/server/middleware/redirect.js'
     }
   ],
   router: {
