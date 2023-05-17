@@ -65,9 +65,9 @@ export default {
   build: {
   },
   env: {
-    WP_URL: process.env.WP_URL || 'https://nuxtjs.org'
+    WP_URL: process.env.WP_URL || 'https://ewflix.com/'
   },
   publicRuntimeConfig: {
-    WP_URL: process.env.WP_URL || 'https://nuxtjs.org'
+    WP_URL: process.env.WP_URL || 'https://ewflix.com/'
   }
 }

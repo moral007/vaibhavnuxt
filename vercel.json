@@ -10,11 +10,11 @@
     }
   ],
   "env": {
-    "WP_URL": true
+    "WP_URL": "https://ewflix.com/"
   },
   "build": {
     "env": {
-      "WP_URL": true
+      "WP_URL": "https://ewflix.com/"
     }
   }
 }
