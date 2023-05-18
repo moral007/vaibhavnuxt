@@ -10,11 +10,11 @@
     }
   ],
   "env": {
-    "WP_URL": "https://ewflix.com/"
+    "WP_URL": "https://news83daily.com/"
   },
   "build": {
     "env": {
-      "WP_URL": "https://ewflix.com/"
+      "WP_URL": "https://news83daily.com/"
     }
   }
 }
