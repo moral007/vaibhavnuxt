@@ -7,7 +7,7 @@
 <script>
 import axios from "axios";
 export default {
-  async asyncData({ params }) {
+  async asyncData({ params, req, route }) {
     try {
       const url = process.env.WP_URL;
       const postId = params.id;
@@ -21,7 +21,10 @@ export default {
       const ogTitle = data.yoast_head_json.title;
       const ogDescription = data.yoast_head_json.og_description;
       const ogImage = data.yoast_head_json.og_image[0].url;
-
+      const isServer = process.server;
+      const protocol = isServer ? "http" : window.location.protocol;
+      const host = isServer ? req.headers.host : window.location.host;
+      const currentUrl = `${protocol}://${host}${route.fullPath}`;
       return {
         title,
         description,
@@ -29,10 +32,10 @@ export default {
         ogDescription,
         ogImage,
         pageContent,
+        currentUrl,
       };
     } catch (e) {
       console.error("Error fetching data:", e);
-      error({ statusCode: 500, message: "Failed to fetch data" });
     }
   },
   head() {
@@ -50,6 +53,16 @@ export default {
           hid: "og:image",
           property: "og:image",
           content: `${this.ogImage}?transform=w_200,h_200,c_fit`,
+        },
+        {
+          hid: "og:type",
+          property: "og:type",
+          content: "article",
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: `${this.currentUrl}`,
         },
         // Add other meta tags as needed
       ],
