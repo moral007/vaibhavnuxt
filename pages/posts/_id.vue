@@ -22,7 +22,7 @@ export default {
       const ogDescription = data.yoast_head_json.og_description;
       const ogImage = data.yoast_head_json.og_image[0].url;
       const isServer = process.server;
-      const protocol = isServer ? "http" : window.location.protocol;
+      const protocol = isServer ? "https" : window.location.protocol;
       const host = isServer ? req.headers.host : window.location.host;
       const currentUrl = `${protocol}://${host}${route.fullPath}`;
       return {
