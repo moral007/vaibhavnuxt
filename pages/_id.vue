@@ -3,15 +3,15 @@
 </template>
 <script>
 export default {
-  mounted() {
-    const url = process.env.WP_URL;
-    const postId = this.$route.params.id;
-    window.location.href = `${url}${postId}`;
-  },
-  // asyncData({ redirect, params }) {
+  // created() {
   //   const url = process.env.WP_URL;
-  //   const postId = params.id;
-  //   return redirect(302, `${url}${postId}`); // Replace with your WordPress URL
+  //   const fullpath = this.$route.fullPath;
+  //   window.location.replace(`${url}${fullpath}`);
   // },
+  asyncData({ redirect, route }) {
+    const url = process.env.WP_URL;
+    const fullpath = route.fullPath;
+    return redirect(301, `${url}${fullpath}`); // Replace with your WordPress URL
+  },
 };
 </script>
